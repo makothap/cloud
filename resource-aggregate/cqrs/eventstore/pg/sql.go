@@ -24,7 +24,7 @@ type EventStore struct {
 }
 
 //NewEventStore create a event store from configuration
-func NewEventStore(ctx context.Context, config Config, goroutinePoolGo eventstore.GoroutinePoolGoFunc, opts ...Option) (*EventStore, error) {
+func NewEventStore(config Config, goroutinePoolGo eventstore.GoroutinePoolGoFunc, opts ...Option) (*EventStore, error) {
 	config.marshalerFunc = cqrsUtils.Marshal
 	config.unmarshalerFunc = cqrsUtils.Unmarshal
 	config.logDebug = func(fmt string, args ...interface{}) {}
@@ -98,7 +98,6 @@ func (s *EventStore) saveEvent(ctx context.Context, m modeler, groupID, aggregat
 			return false, fmt.Errorf("cannot create table: %w", err)
 		}
 	}
-
 	res, err := eventTable(m.ModelContext(ctx, &storeEvent), groupID).OnConflict("DO NOTHING").Insert()
 	if err != nil {
 		return false, err

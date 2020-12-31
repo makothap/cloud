@@ -34,7 +34,7 @@ func TestEventStore(t *testing.T) {
 	ctx := context.Background()
 	cfg.User = user
 
-	store, err := pg.NewEventStore(ctx,
+	store, err := pg.NewEventStore(
 		cfg,
 		func(f func()) error { go f(); return nil },
 		pg.WithMarshaler(bson.Marshal),

@@ -8,17 +8,17 @@ import (
 
 type Event struct {
 	tableName      struct{} `pg:"_"`
-	Version        uint64   `pg:",pk,unique:unique_event"`
-	AggregateID    int64    `pg:",pk,unique:unique_event"`
-	AggregateIDStr string
-	Data           []byte
-	EventType      string
+	Version        uint64   `pg:",nopk,unique:unique_event"`
+	AggregateID    int64    `pg:",nopk,unique:unique_event"`
+	AggregateIDStr string   `pg:",nopk"`
+	Data           []byte   `pg:",nopk"`
+	EventType      string   `pg:",nopk"`
 }
 
 type Snapshot struct {
 	tableName   struct{} `pg:"_"`
-	AggregateID int64    `pg:",pk,unique"`
-	Version     uint64
+	AggregateID int64    `pg:",nopk,unique:unique_aggregate"`
+	Version     uint64   `pg:",nopk"`
 }
 
 func eventTableName(groupID string) string {
