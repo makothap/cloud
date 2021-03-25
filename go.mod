@@ -24,8 +24,8 @@ require (
 	github.com/plgd-dev/go-coap/v2 v2.3.1-0.20210204203130-38a043760811
 	github.com/plgd-dev/kit v0.0.0-20210205135220-6c16c4ac0fd5
 	github.com/plgd-dev/sdk v0.0.0-20201105135357-8507ce8ec280
-	github.com/smallstep/certificates v0.13.4-0.20191007194430-e2858e17b094
-	github.com/smallstep/nosql v0.2.0
+	github.com/smallstep/certificates v0.15.11
+	github.com/smallstep/nosql v0.3.6
 	github.com/stretchr/testify v1.6.1
 	github.com/valyala/fasthttp v1.16.0
 	go.mongodb.org/mongo-driver v1.4.2
@@ -33,7 +33,7 @@ require (
 	go.uber.org/zap v1.15.0
 	golang.org/x/oauth2 v0.0.0-20200902213428-5d25da1a8d43
 	golang.org/x/sync v0.0.0-20201008141435-b3e1573b7520
-	google.golang.org/genproto v0.0.0-20200825200019-8632dd797987
+	google.golang.org/genproto v0.0.0-20201019141844-1ed22bb0c154
 	google.golang.org/grpc v1.34.0
 	google.golang.org/grpc/examples v0.0.0-20210129004707-0bc741730b81 // indirect
 	google.golang.org/protobuf v1.25.0
